@@ -4,6 +4,8 @@ import { WishlistService } from '../../../../services/wishlist.service';
 import { ProductsService } from '../../../../../shared/services/products.service';
 import { Observable, of } from 'rxjs';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { FirebaseApp } from 'angularfire2';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-topbar',
@@ -12,11 +14,13 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class TopbarOneComponent implements OnInit {
 
+  user: firebase.User;
+
   constructor(
     public productsService: ProductsService,
     private afAuth: AngularFireAuth
   ) {
-    afAuth.authState.subscribe(x => console.log(x));
+    afAuth.authState.subscribe(x => this.user = x);
   }
 
   ngOnInit() { }
