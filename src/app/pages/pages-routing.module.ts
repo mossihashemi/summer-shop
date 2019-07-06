@@ -26,6 +26,7 @@ import { MasonaryTwoGridComponent } from './portfolio/masonary-two-grid/masonary
 import { MasonaryThreeGridComponent } from './portfolio/masonary-three-grid/masonary-three-grid.component';
 import { MasonaryFourGridComponent } from './portfolio/masonary-four-grid/masonary-four-grid.component';
 import { MasonaryFullwidthComponent } from './portfolio/masonary-fullwidth/masonary-fullwidth.component';
+import { AuthGuardService } from '../shared/services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -77,7 +78,8 @@ const routes: Routes = [
       },
       {
         path: 'checkout',
-        component: CheckoutComponent
+        component: CheckoutComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: 'compare',
@@ -85,7 +87,8 @@ const routes: Routes = [
       },
       {
         path: 'order-success',
-        component: OrderSuccessComponent
+        component: OrderSuccessComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: 'dashboard',

@@ -35,6 +35,7 @@ import { CategoriesComponent } from './footer/widgets/categories/categories.comp
 import { WhyWeChooseComponent } from './footer/widgets/why-we-choose/why-we-choose.component';
 import { CopyrightComponent } from './footer/widgets/copyright/copyright.component';
 import { SocialComponent } from './footer/widgets/social/social.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   exports: [
@@ -89,7 +90,8 @@ import { SocialComponent } from './footer/widgets/social/social.component';
     CartService,
     OrderService,
     PaginationService,
-    AuthService
+    AuthService,
+    AuthGuardService
   ]
 })
 export class SharedModule { }
