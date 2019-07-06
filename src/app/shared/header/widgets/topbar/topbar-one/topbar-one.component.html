@@ -16,32 +16,36 @@
         <a [routerLink]="'/home/wishlist'"><i class="fa fa-heart"
             aria-hidden="true"></i>{{ 'wishlist' | translate }}</a>
       </li>
-      <li *ngIf="!user" class="onhover-dropdown mobile-account">
-        <i class="fa fa-user" aria-hidden="true"></i> {{ 'my-account' | translate }}
-        <ul class="onhover-show-div">
-          <li>
-            <a [routerLink]="'/pages/login'" data-lng="en">
-              {{ 'login' | translate }}
-            </a>
-          </li>
-          <li>
-            <a [routerLink]="'/pages/wishlist'" data-lng="en">
-              {{ 'wishlist' | translate }}
-            </a>
-          </li>
-          <li>
-            <a [routerLink]="'/home/cart'" data-lng="es">
-              {{ 'cart' | translate }}
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li *ngIf="user" class="onhover-dropdown mobile-account">
+
+      <ng-template #anonymousUser>
+        <li class="onhover-dropdown mobile-account">
+          <i class="fa fa-user" aria-hidden="true"></i> {{ 'my-account' | translate }}
+          <ul class="onhover-show-div">
+            <li>
+              <a [routerLink]="'/pages/login'" data-lng="en">
+                {{ 'login' | translate }}
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="'/pages/wishlist'" data-lng="en">
+                {{ 'wishlist' | translate }}
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="'/home/cart'" data-lng="es">
+                {{ 'cart' | translate }}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ng-template>
+
+      <li *ngIf="user$ | async as user; else anonymousUser " class="onhover-dropdown mobile-account">
         <i class="fa fa-user" aria-hidden="true"></i> {{ user.displayName }}
         <ul class="onhover-show-div">
 
           <li>
-            <a [routerLink]="'/home/one'" data-lng="es" (click)="logout()">
+            <a [routerLink]="'/home/five'" data-lng="es" (click)="logout()">
               {{ 'logout' | translate }}
             </a>
           </li>

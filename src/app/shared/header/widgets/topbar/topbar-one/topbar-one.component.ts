@@ -14,13 +14,13 @@ import * as firebase from 'firebase';
 })
 export class TopbarOneComponent implements OnInit {
 
-  user: firebase.User;
+  user$: Observable<firebase.User>;
 
   constructor(
     public productsService: ProductsService,
     private afAuth: AngularFireAuth
   ) {
-    afAuth.authState.subscribe(x => this.user = x);
+    this.user$ = afAuth.authState;
   }
 
   ngOnInit() { }
