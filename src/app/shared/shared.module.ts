@@ -10,6 +10,7 @@ import { ProductsService } from "./services/products.service";
 import { WishlistService } from "./services/wishlist.service";
 import { CartService } from "./services/cart.service";
 import { OrderService } from "./services/order.service";
+import { AuthService } from './services/auth.service';
 import { PaginationService } from "./classes/paginate";
 // Pipes
 import { OrderByPipe } from './pipes/order-by.pipe';
@@ -87,7 +88,8 @@ import { SocialComponent } from './footer/widgets/social/social.component';
     WishlistService,
     CartService,
     OrderService,
-    PaginationService
+    PaginationService,
+    AuthService
   ]
 })
 export class SharedModule { }

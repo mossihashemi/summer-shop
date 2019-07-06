@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../../classes/product';
 import { WishlistService } from '../../../../services/wishlist.service';
 import { ProductsService } from '../../../../../shared/services/products.service';
-import { Observable, of } from 'rxjs';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { FirebaseApp } from 'angularfire2';
-import * as firebase from 'firebase';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-topbar',
@@ -14,18 +11,15 @@ import * as firebase from 'firebase';
 })
 export class TopbarOneComponent implements OnInit {
 
-  user$: Observable<firebase.User>;
-
   constructor(
     public productsService: ProductsService,
-    private afAuth: AngularFireAuth
+    public auth: AuthService
   ) {
-    this.user$ = afAuth.authState;
   }
 
   ngOnInit() { }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.auth.logout();
   }
 }

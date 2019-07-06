@@ -40,7 +40,7 @@
         </li>
       </ng-template>
 
-      <li *ngIf="user$ | async as user; else anonymousUser " class="onhover-dropdown mobile-account">
+      <li *ngIf="auth.user$ | async as user; else anonymousUser " class="onhover-dropdown mobile-account">
         <i class="fa fa-user" aria-hidden="true"></i> {{ user.displayName }}
         <ul class="onhover-show-div">
 
